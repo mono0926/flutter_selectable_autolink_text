@@ -31,7 +31,11 @@ class _TextSpanEditingController extends TextEditingController {
   final TextSpan _textSpan;
 
   @override
-  TextSpan buildTextSpan({TextStyle? style, bool? withComposing}) {
+  TextSpan buildTextSpan({
+    required BuildContext context,
+    TextStyle? style,
+    required bool withComposing,
+  }) {
     // This does not care about composing.
     return TextSpan(
       style: style,
@@ -50,7 +54,7 @@ class _SelectableTextSelectionGestureDetectorBuilder
     extends TextSelectionGestureDetectorBuilder {
   _SelectableTextSelectionGestureDetectorBuilder({
     required _SelectableTextState state,
-  })   : _state = state,
+  })  : _state = state,
         super(delegate: state);
 
   final _SelectableTextState _state;
